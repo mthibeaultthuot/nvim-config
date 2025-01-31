@@ -14,6 +14,23 @@ return {
   },
 
   { "nvim-tree/nvim-web-devicons", opts = {} },
+
+  { "echasnovski/mini.nvim", version = "*", 
+    config = function()
+      require("mini.files").setup ({
+        windows = {
+          preview = true,
+          max_number = 1,
+          width_focus = 30,
+          width_preview = 30,
+        },
+      })
+      vim.keymap.set('n', "<C-y>", ":lua MiniFiles.open(vim.fn.getcwd())<CR>", {noremap = true, silent = true, desc = "MiniFile [E]xplorer"})
+    end,
+  },
+
+
+
   {
     "sindrets/diffview.nvim"
   },
@@ -25,7 +42,7 @@ return {
 	  config = function()
 		  vim.cmd("colorscheme rose-pine")
 	  end
-  }
+  },
   
 
   {
