@@ -4,7 +4,7 @@
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "html", "cssls" }
+local servers = { "html", "cssls", "svelte", "dartls" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
 -- lsps with default config
@@ -23,18 +23,14 @@ end
 --   capabilities = nvlsp.capabilities,
 -- }
 
-
-
-
 -- rust config
 local util = require "lspconfig/util"
 
-
-lspconfig.rust_analyzer.setup({
+lspconfig.rust_analyzer.setup {
   on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
-  filetypes = {"rust"},
-  root_dir = util.root_pattern("Cargo.toml"),
+  filetypes = { "rust" },
+  root_dir = util.root_pattern "Cargo.toml",
   settings = {
     ["rust-analyzer"] = {
       cargo = {
@@ -42,4 +38,8 @@ lspconfig.rust_analyzer.setup({
       },
     },
   },
-})
+}
+
+lspconfig.svelte.setup {
+  filetypes = { "svelte" },
+}
