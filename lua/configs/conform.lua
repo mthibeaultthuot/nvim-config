@@ -5,6 +5,8 @@ local options = {
     html = { "prettier" },
     svelte = { "prettierd", "prettier" },
     json = { "prettierd", "prettier" },
+    tsx = { "prettierd", "prettier" },
+    typescriptreact = { "prettierd", "prettier" },
   },
 
   -- format_on_save = {

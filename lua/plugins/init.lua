@@ -4,7 +4,9 @@ return {
     -- event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
   },
-
+  {
+    "dccsillag/magma-nvim",
+  },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
@@ -14,6 +16,8 @@ return {
         "markdown",
         "javascript",
         "typescript",
+        "tsx",
+        "lua",
       },
     },
   },
@@ -117,8 +121,18 @@ return {
     opts = {
       ensure_installed = {
         "rust-analyzer",
+        "eslint-lsp",
         "prettier",
+        "tailwindcss-language-server",
+        "typescript-language-server",
       },
+    },
+    {
+      "nvimtools/none-ls.nvim",
+      event = "VeryLazy",
+      opts = function()
+        return require "configs.null-ls"
+      end,
     },
 
     dependencies = {
