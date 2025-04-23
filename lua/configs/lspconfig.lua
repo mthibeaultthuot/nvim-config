@@ -4,7 +4,7 @@
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "html", "cssls", "svelte", "dartls", "ts_ls", "tailwindcss", "eslint" }
+local servers = { "html", "cssls", "svelte", "dartls", "ts_ls", "tailwindcss", "eslint", "glsl_analyzer" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
 -- lsps with default config
@@ -46,5 +46,12 @@ lspconfig.svelte.setup {
 
 lspconfig.ts_ls.setup {
   on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+lspconfig.glsl_analyzer.setup {
+  filetypes = { "glsl", "vert", "frag" },
+  on_attach = on_attach,
+  on_init = on_init,
   capabilities = capabilities,
 }
