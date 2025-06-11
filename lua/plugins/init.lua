@@ -126,6 +126,8 @@ return {
         "prettier",
         "tailwindcss-language-server",
         "typescript-language-server",
+        "clangd",
+        "clang-format",
       },
     },
     {
